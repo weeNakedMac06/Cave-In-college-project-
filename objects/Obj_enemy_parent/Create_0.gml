@@ -1,3 +1,4 @@
-//enemy variables
-hp = 10
+get_damaged_create(20)
+
+
 

@@ -6,15 +6,6 @@ xspd =0
 yspd=0
 
 // sprite controll
+face = 1
 
-
-	
-
-
-
-sprite[0] = Spr_zombie_right
-sprite[1]= Spr_zombie_up
-sprite[2]=Spr_zombie_left
-sprite[3] = Spr_zombie_down
-
-face = 3
+hp = 30

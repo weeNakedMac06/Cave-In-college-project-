@@ -6,7 +6,12 @@
 	y += ySpd
 
 #endregion
+
+
+
 #region//cleanup
+	//hit confrim destroy
+	if hitConfirm =	true and enemyDestroy = true{destroy = true}
 	
 	// destroy
 	

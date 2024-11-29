@@ -45,9 +45,9 @@ global.WeaponList = {
 	Spr_shotgun,
 	sprite_get_bbox_bottom(Spr_shotgun),
 	obj_player_bullet_shotgun,
-	45,
+	90,
 	5,
-	45			
+	45
 	),
 	
 	

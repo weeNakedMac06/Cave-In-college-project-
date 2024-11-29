@@ -16,3 +16,7 @@ if aimDir >= 180 and aimDir < 360
 	draw_my_weapon()
 }
 #endregion
+
+//draw hp
+
+draw_text(x,y,string(hp))

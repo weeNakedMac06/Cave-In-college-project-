@@ -6,6 +6,12 @@ if instance_exists(obj_player){dir = point_direction(x,y,obj_player.x,obj_player
 xspd = lengthdir_x(spd,dir)
 yspd = lengthdir_y(spd,dir)
 
+
+// get correct face
+if xspd > 0 {face = 1}
+if yspd < 0 {face = -1}
+image_xscale = face
+
 //collision
 
 if place_meeting(x + xspd,y,obj_wall) or place_meeting(x+ xspd,y,Obj_enemy_parent)
@@ -22,22 +28,15 @@ y += yspd
 
 
 // sprite controll
-face = round(dir/90)
-	if face == 4 {face = 0}
+
 	
-	//animate
 	
-	if xspd = 0 and yspd == 0
-	{
 	
-	image_index = 0
-		
-	}
+
 	
 	
 	//set the player sprite
-	mask_index = sprite[3]
-	sprite_index = sprite[face]
+	
 
 
 
