@@ -1,5 +1,5 @@
 //damage
-get_damaged_create(2, true)
+get_damaged_create(20, true)
 
 
 

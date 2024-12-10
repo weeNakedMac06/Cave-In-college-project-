@@ -1,15 +1,13 @@
 {
   "$GMObject":"",
-  "%Name":"game_manager",
-  "eventList":[
-    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":8,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
-  ],
+  "%Name":"Obj_enemy_bullet_deact",
+  "eventList":[],
   "managed":true,
-  "name":"game_manager",
+  "name":"Obj_enemy_bullet_deact",
   "overriddenProperties":[],
   "parent":{
-    "name":"managers",
-    "path":"folders/Objects/managers.yy",
+    "name":"enemy",
+    "path":"folders/Objects/enemy.yy",
   },
   "parentObjectId":null,
   "persistent":false,
@@ -29,7 +27,10 @@
   "resourceType":"GMObject",
   "resourceVersion":"2.0",
   "solid":false,
-  "spriteId":null,
+  "spriteId":{
+    "name":"Spr_enemy_bullet_moving_1",
+    "path":"sprites/Spr_enemy_bullet_moving_1/Spr_enemy_bullet_moving_1.yy",
+  },
   "spriteMaskId":null,
   "visible":true,
 }
