@@ -9,9 +9,9 @@ ySpd = 0
 
 #region
 
-maxDist = 168;
+maxDist = 269;
 destroy= false;
-enemyDestroy = true
+enemyDestroy = false
 #endregion
 #region // damage
 damage = 3

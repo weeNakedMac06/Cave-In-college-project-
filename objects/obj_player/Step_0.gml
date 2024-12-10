@@ -1,3 +1,7 @@
+//damage
+get_damaged(Obj_player_damage, true)
+
+
 #region // player input
 //player input
 rightKey = keyboard_check(ord("D"))
@@ -27,13 +31,13 @@ dashKey= keyboard_check_pressed(vk_space)
 	ySpd = lengthdir_y(_spd, moveDir);
 	
 	// collisions 
-	if place_meeting(x + xSpd,y,obj_wall)
+	if place_meeting(x + xSpd,y,obj_wall) or place_meeting(x + xSpd,y,obj_wall_2)
 	{
 		xSpd = 0
 		xSpdDash = 0
 	}
 	
-	if place_meeting(x ,y + ySpd,obj_wall)
+	if place_meeting(x ,y + ySpd,obj_wall) or place_meeting(x,y+ySpd,obj_wall_2)
 	{
 		ySpd = 0
 		ySpdDash = 0
@@ -45,6 +49,7 @@ dashKey= keyboard_check_pressed(vk_space)
 	
 	x += xSpd
 	y += ySpd
+	
 	
 	
 	// dash ability
@@ -148,6 +153,8 @@ if shootKey && shootTimer <= 0
 	
 	
 	
+	
+	
 	//create bullet
 	var _xOffset =lengthdir_x(weapon.legnth + weaponOffset, aimDir)
 	var _yOffset =lengthdir_y(weapon.legnth + weaponOffset, aimDir)
@@ -159,7 +166,7 @@ if shootKey && shootTimer <= 0
 	// create the correct number of bullets 
 	for(var i = 0; i < weapon.bulletNum; i++  )
 	{
-		var _bulletInst = instance_create_depth(x + _xOffset+ i,centerY + _yOffset , depth - 100, weapon.bulletObj)
+		var _bulletInst = instance_create_depth(x + _xOffset+ i,centerY + _yOffset-2 , depth - 150, weapon.bulletObj)
 	
 		//change bullet direction
 	
@@ -206,3 +213,9 @@ if shootKey && shootTimer <= 0
 	mask_index = sprite[3]
 	sprite_index = sprite[face]
 #endregion
+
+
+if hp <= 0 
+{
+instance_destroy()		
+}

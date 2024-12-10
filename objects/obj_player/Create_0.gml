@@ -1,3 +1,8 @@
+//damage
+get_damaged_create(2, true)
+
+
+
 #region// variables for movement
 	moveDir = 0;
 	moveSpd = 3;
@@ -48,9 +53,9 @@ shootTimer = 0
 
 // weapon inv
 	//add weapons
-	array_push(global.PlayerWeapons, global.WeaponList.gunAr)
-	array_push(global.PlayerWeapons, global.WeaponList.gunPistol)
-	array_push(global.PlayerWeapons, global.WeaponList.gunShotgun)
+	array_push(global.PlayerWeapons, global.WeaponList.gunAr,global.WeaponList.gunShotgun)
+	
+	
 
 weapon = global.PlayerWeapons[0]
 
@@ -59,3 +64,4 @@ selectedWeapon = 0
 
 
 #endregion
+face2 = 0

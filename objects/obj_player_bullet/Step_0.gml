@@ -20,6 +20,7 @@
 	//collision with objects
 		
 	if place_meeting(x,y,obj_wall){destroy = true}
+	if place_meeting(x,y,obj_wall_2){destroy = false}
 
 	// bullet out of range
 	

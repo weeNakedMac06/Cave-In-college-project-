@@ -14,9 +14,9 @@ image_xscale = face
 
 //collision
 
-if place_meeting(x + xspd,y,obj_wall) or place_meeting(x+ xspd,y,Obj_enemy_parent)
+if place_meeting(x + xspd,y,obj_wall) or place_meeting(x+ xspd,y,Obj_enemy_parent) or place_meeting(x + xSpd,y,obj_wall_2)
 {xspd = 0}
-if place_meeting(x ,y + yspd,obj_wall) or place_meeting(x,y+yspd,Obj_enemy_parent)
+if place_meeting(x ,y + yspd,obj_wall) or place_meeting(x,y+yspd,Obj_enemy_parent) or place_meeting(x,y+ySpd,obj_wall_2)
 {yspd = 0}
 
 

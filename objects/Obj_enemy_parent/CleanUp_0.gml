@@ -1,1 +1,1 @@
-damage_clean_up()
+get_damaged_clean()

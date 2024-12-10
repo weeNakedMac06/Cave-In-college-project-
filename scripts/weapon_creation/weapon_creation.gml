@@ -25,20 +25,12 @@ global.WeaponList = {
 	Spr_wand,//sprite
 	sprite_get_bbox_right(Spr_wand),//hitbox
 	obj_player_bullet,// bullet sprite
-	10,//cooldown
+	9,//cooldown
 	1,//number of bullets
 	0//spread
 	),
 	
-	gunPistol : new create_weapon
-	(
-	Spr_pistol,
-	sprite_get_bbox_right(Spr_pistol),
-	obj_player_bullet_pistol,
-	25,
-	1,
-	0
-	),
+	
 	
 	gunShotgun : new create_weapon
 	(
@@ -49,6 +41,9 @@ global.WeaponList = {
 	5,
 	45
 	),
+	
+	
+	
 	
 	
 }
