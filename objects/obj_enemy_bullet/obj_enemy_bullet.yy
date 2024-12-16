@@ -1,22 +1,20 @@
 {
   "$GMObject":"",
-  "%Name":"obj_zombie",
+  "%Name":"obj_enemy_bullet",
   "eventList":[
     {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
     {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":3,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
-    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":1,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
-    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":8,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
   ],
   "managed":true,
-  "name":"obj_zombie",
+  "name":"obj_enemy_bullet",
   "overriddenProperties":[],
   "parent":{
     "name":"enemy",
     "path":"folders/Objects/enemy.yy",
   },
   "parentObjectId":{
-    "name":"Obj_enemy_parent",
-    "path":"objects/Obj_enemy_parent/Obj_enemy_parent.yy",
+    "name":"Obj_player_damage",
+    "path":"objects/Obj_player_damage/Obj_player_damage.yy",
   },
   "persistent":false,
   "physicsAngularDamping":0.1,
@@ -36,8 +34,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"Spr_zombie",
-    "path":"sprites/Spr_zombie/Spr_zombie.yy",
+    "name":"Spr_enemy_bullet",
+    "path":"sprites/Spr_enemy_bullet/Spr_enemy_bullet.yy",
   },
   "spriteMaskId":null,
   "visible":true,
