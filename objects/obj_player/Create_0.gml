@@ -1,5 +1,5 @@
 //damage
-get_damaged_create(2, true)
+get_damaged_create(10, true)
 
 
 
@@ -65,3 +65,5 @@ selectedWeapon = 0
 
 #endregion
 face2 = 0
+
+//score

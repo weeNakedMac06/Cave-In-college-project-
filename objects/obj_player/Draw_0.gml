@@ -19,4 +19,5 @@ if aimDir >= 180 and aimDir < 360
 
 //draw hp
 
-draw_text(x-10,y-64,string(hp))
+
+

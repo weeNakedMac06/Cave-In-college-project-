@@ -4,14 +4,23 @@ get_damaged(Obj_player_damage, true)
 
 #region // player input
 //player input
-rightKey = keyboard_check(ord("D"))
-leftKey = keyboard_check(ord("A"))
-upKey = keyboard_check(ord("W"))
-downKey = keyboard_check(ord("S"))
-shootKey = mouse_check_button(mb_left)
-swapKeyUp=  mouse_wheel_up()
-swapKeyDown = mouse_wheel_down()
-dashKey= keyboard_check_pressed(vk_space)
+rightKey = global.rightKey
+leftKey = global.leftKey 
+upKey = global.upKey
+downKey = global.downKey
+shootKey =global.shootKey 
+swapKeyUp= global.swapKeyUp 
+swapKeyDown = global.swapKeyDown
+dashKey= global.dashKey
+rKey= global.rKey
+
+
+
+
+
+
+
+
 
 #endregion
 #region // movement
@@ -217,5 +226,9 @@ if shootKey && shootTimer <= 0
 
 if hp <= 0 
 {
-instance_destroy()		
+	instance_create_depth(0,0,0,obj_game_over)
+
+	instance_destroy()		
+	
+
 }
