@@ -22,10 +22,3 @@
 
 	
 #endregion
-
-randomNo = irandom(35)
-
-if randomNo = 5
-{
-	damage = damage *2
-}

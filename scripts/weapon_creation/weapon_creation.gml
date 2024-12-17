@@ -25,7 +25,7 @@ global.WeaponList = {
 	Spr_wand,//sprite
 	sprite_get_bbox_right(Spr_wand),//hitbox
 	obj_player_bullet,// bullet sprite
-	5,//cooldown
+	9,//cooldown
 	1,//number of bullets
 	0//spread
 	),
@@ -38,8 +38,8 @@ global.WeaponList = {
 	sprite_get_bbox_bottom(Spr_shotgun),
 	obj_player_bullet_shotgun,
 	90,
-	5, //5
-	45 // 45
+	5,
+	45
 	),
 	
 	

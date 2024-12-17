@@ -3,6 +3,7 @@
 draw_self()
 
 // draw hp
+draw_text(x,y-32, string(hp))
 
 // check for size of damage list 
 

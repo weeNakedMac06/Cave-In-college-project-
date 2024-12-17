@@ -21,8 +21,3 @@ enemyDestroy = true
 #region // damage
 damage = 1
 #endregion
-
-//damage multiplier
-randomNo = 0
-
-

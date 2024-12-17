@@ -114,8 +114,6 @@ function get_damaged(_damageObj, _iframes = false)
 
 function get_damaged_create(_hp, _iframes = false)
 {
-	
-	maxHp = _hp
 	hp = _hp
 
 	if _iframes == true
