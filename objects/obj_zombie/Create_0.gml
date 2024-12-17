@@ -28,3 +28,7 @@ bulletInst = noone
 //bullet offsests
 
 bulletXoff = 4
+
+//spawn in
+fadeSpd = 1/15
+spawnSpeed= .25

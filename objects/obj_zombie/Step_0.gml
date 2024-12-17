@@ -1,9 +1,53 @@
 image_xscale = face
+var _wallCollisions = true
+var _getDamaged = true
 
 //state machines 
 	//chase
 switch(state)	
 {	
+	
+	#region//spawn in state
+	case -1:
+		
+		//fade in
+		if image_alpha <1
+		{
+			image_alpha += fadeSpd
+			//set speed manually
+			spd = 0
+		}
+		
+		
+		//turn off collisions and damage
+		_wallCollisions = false
+		_getDamaged = false
+		
+		//walk out
+		
+		if image_alpha>= 1
+		{
+		//get player direction and set right speed	
+			spd = spawnSpeed
+			
+			dir = point_direction(x,y,obj_player.x, obj_player.y)
+			
+		}
+		
+		
+		//go to chase state
+		if !place_meeting(x,y,obj_wall) or !place_meeting(x,y,obj_zombie)
+		{
+			state = 0
+		}
+		
+		
+	
+	
+	break
+	#endregion
+	
+	
 	#region //chase state
 	case 0:
 	//get player dir
@@ -112,11 +156,22 @@ if dir > 90 and dir < 270{face = -1}else{face = 1}
 
 
 
-//collision
+//collision with walls
 
-if place_meeting(x + xspd,y,obj_wall) or place_meeting(x+ xspd,y,Obj_enemy_parent) or place_meeting(x + xspd,y,obj_wall_2)
+
+if _wallCollisions = true
+{
+	if place_meeting(x + xspd,y,obj_wall)  or place_meeting(x + xspd,y,obj_wall_2)
+	{xspd = 0}
+	if place_meeting(x ,y + yspd,obj_wall) or place_meeting(x,y+yspd,obj_wall_2)
+	{yspd = 0}
+}
+
+
+//collisions with enemies
+if place_meeting(x + xspd,y,Obj_enemy_parent)
 {xspd = 0}
-if place_meeting(x ,y + yspd,obj_wall) or place_meeting(x,y+yspd,Obj_enemy_parent) or place_meeting(x,y+yspd,obj_wall_2)
+if place_meeting(x ,y + yspd,Obj_enemy_parent)
 {yspd = 0}
 
 
@@ -141,6 +196,6 @@ depth = -y
 
 
 
-// Inherit the parent event
-event_inherited();
+// Inherit the parent event if damage is true
+if _getDamaged == true{event_inherited();}
 
