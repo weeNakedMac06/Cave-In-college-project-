@@ -18,10 +18,11 @@
   ],
   "gridX":0,
   "gridY":0,
-  "height":32,
+  "height":48,
   "HTile":false,
   "layers":[
     {"$GMImageLayer":"","%Name":"12c9a762-90ea-430d-8e71-bec2fac3a2ff","blendMode":0,"displayName":"default","isLocked":false,"name":"12c9a762-90ea-430d-8e71-bec2fac3a2ff","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
+    {"$GMImageLayer":"","%Name":"e580219f-b993-47d3-9fd5-61bbc98a2ae5","blendMode":0,"displayName":"Layer 1","isLocked":false,"name":"e580219f-b993-47d3-9fd5-61bbc98a2ae5","opacity":62.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
   ],
   "name":"Spr_zombie",
   "nineSlice":null,

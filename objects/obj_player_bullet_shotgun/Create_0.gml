@@ -11,8 +11,8 @@ ySpd = 0
 
 maxDist = 269;
 destroy= false;
-enemyDestroy = false
+enemyDestroy = true
 #endregion
 #region // damage
-damage = 3
+damage = 4
 #endregion

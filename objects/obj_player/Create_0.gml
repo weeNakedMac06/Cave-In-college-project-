@@ -1,5 +1,5 @@
 //damage
-get_damaged_create(10, true)
+get_damaged_create(1, true)
 
 
 
@@ -9,15 +9,11 @@ get_damaged_create(10, true)
 	xSpd= 0;
 	ySpd = 0;
 	
-// variables 
-	dashing = false
-	dashSpd = 300
-
-	dashTimer = 0 
-	dashTime= 20
-	
-	dashCoolDown = 40
-	dashTime2 = 0
+// variables  for dash
+	dash_speed = 12
+	dash_duration = 0.3
+	is_dashing = false
+	dash_timer = 0
 
 
 	
@@ -67,3 +63,10 @@ selectedWeapon = 0
 face2 = 0
 
 //score
+
+//upgrades
+upgNo = 0
+
+// reload
+reloadTimer = 0
+TimerToReload =0 // controlls the time it takes to reload once button is pressed

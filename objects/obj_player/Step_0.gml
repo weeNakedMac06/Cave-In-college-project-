@@ -64,37 +64,39 @@ rKey= global.rKey
 	// dash ability
 	
 	
-	xSpdDash = lengthdir_x(dashSpd, aimDir);
-	ySpdDash = lengthdir_y(dashSpd, aimDir);
-	
-	dashTimer = 0
-	if dashKey
-	{ 
-		
-	dashing = true 
-	dashTimer ++	
-		
+	if (dashKey && !is_dashing) 
+	{ is_dashing = true; 
+		dash_timer = dash_duration; 
 	}
+	
+	// Update dash
+	if (is_dashing) 
+	{
+	    x += dash_speed * lengthdir_x(1, direction);
+	    y += dash_speed * lengthdir_y(1, direction);
+	    dash_timer -= delta_time; // delta_time is the time passed since the last frame
+
+	    // Stop dashing when the timer runs out
+	    if (dash_timer <= 0) {
+	        is_dashing = false;
+	    }
+	}
+	
+	// Check for collision while dashing
+	if (is_dashing) 
+	{
+		if (place_meeting(x + dash_speed * lengthdir_x(1, direction), y + dash_speed * lengthdir_y(1, direction), obj_wall)) 
+		{
+        is_dashing = false;
+		}
+	}
+
+
+	
 	
 
 	
-	if dashing = true and dashTimer <= dashTime
-	{
-       
-	    if(place_meeting(x, y, obj_wall) or place_meeting(x, y, obj_wall)) {
-        if(!place_meeting(x+xSpdDash, y, obj_wall)) {
-            x+= 5
-			y+= 5
-        }
-    }
-	else {
-        x += xSpdDash
-		y += ySpdDash
-		dashing = false
-    }	   
-	   
-	  
-    }	
+	
 		
 		
 	
@@ -102,7 +104,7 @@ rKey= global.rKey
 		
 	
 	
-	if dashTimer >= dashTime and dashing = false {dashTimer = 0}
+	
 	
 #endregion	
 #region // weapon swapping
@@ -160,35 +162,54 @@ if shootKey && shootTimer <= 0
 	// shoot timer reset 
 	shootTimer = weapon.cooldown
 	
-	
-	
-	
-	
-	//create bullet
-	var _xOffset =lengthdir_x(weapon.legnth + weaponOffset, aimDir)
-	var _yOffset =lengthdir_y(weapon.legnth + weaponOffset, aimDir)
-	
-	var _spread = weapon.spread
-	var _spreadDiv = _spread/weapon.bulletNum ;
-	
-	
-	// create the correct number of bullets 
-	for(var i = 0; i < weapon.bulletNum; i++  )
+	weapon.ammoCount = weapon.ammoCount -1
+	if weapon.ammoCount <=0 
 	{
-		var _bulletInst = instance_create_depth(x + _xOffset+ i,centerY + _yOffset-2 , depth - 150, weapon.bulletObj)
+		weapon.ammoCount =0
+	}
 	
-		//change bullet direction
+	if weapon.ammoCount >=1
+	{
 	
-		with (_bulletInst)
+	
+	
+		//create bullet
+		var _xOffset =lengthdir_x(weapon.legnth + weaponOffset, aimDir)
+		var _yOffset =lengthdir_y(weapon.legnth + weaponOffset, aimDir)
+	
+		var _spread = weapon.spread
+		var _spreadDiv = _spread/weapon.bulletNum ;
+	
+	
+		// create the correct number of bullets 
+		for(var i = 0; i < weapon.bulletNum; i++  )
 		{
+			var _bulletInst = instance_create_depth(x + _xOffset+ i,centerY + _yOffset-2 , depth - 150, weapon.bulletObj)
+	
+			//change bullet direction
+	
+			with (_bulletInst)
+			{
 		
-			dir = other.aimDir - _spread/2 +_spreadDiv*i;
+				dir = other.aimDir - _spread/2 +_spreadDiv*i;
 		
+			}
 		}
 	}
 
-}
 	
+}
+reloadTimer ++
+	
+	
+	
+if rKey and reloadTimer>= weapon.reloadCoolDown
+	{
+		
+		weapon.ammoCount = weapon.maxAmmo
+		reloadTimer =0
+		
+	}
 
 
 #endregion
@@ -223,12 +244,41 @@ if shootKey && shootTimer <= 0
 	sprite_index = sprite[face]
 #endregion
 
-
-if hp <= 0 
+//power ups
+if upgNo = 1
 {
-	instance_create_depth(0,0,0,obj_game_over)
 
-	instance_destroy()		
+moveSpd = 4.5	
 	
+}
+else 
+{
+	moveSpd = 3
+}
 
+if upgNo = 2
+{
+	if weapon.sprite = Spr_wand
+	{
+		weapon.cooldown = 4.5
+		weapon.reloadCoolDown = 4.3*60
+	}
+	if weapon.sprite = Spr_shotgun
+	{
+		weapon.cooldown = 45
+		weapon.reloadCoolDown = 2.5*60
+	}
+	
+}
+
+
+
+// hp controll 
+if hp <= 0
+{
+
+instance_create_depth(0,0,0,obj_game_over)
+
+instance_destroy()			
+	
 }

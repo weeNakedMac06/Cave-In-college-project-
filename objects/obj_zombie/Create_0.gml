@@ -15,11 +15,12 @@ maxHp = 15
 state = 0
 
 //chase state
-coolDownTime = 60*4
+coolDownTime = 60*2
 
 //shooting state
 shootTimer = irandom(coolDownTime)
-windUpTime =60
+fireTime = 0;
+windUpTime =30
 recoverTime = 45
 
 //set up bullet instance variable
@@ -30,5 +31,10 @@ bulletInst = noone
 bulletXoff = 4
 
 //spawn in
-fadeSpd = 1/15
-spawnSpeed= .25
+fadeSpd = 1/75
+spawnSpeed= 0.2
+
+//timer
+timer = 0
+//stand still
+spawnTimer = 60*2

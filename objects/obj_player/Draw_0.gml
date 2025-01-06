@@ -17,7 +17,9 @@ if aimDir >= 180 and aimDir < 360
 }
 #endregion
 
-//draw hp
+//draw ammo
+
+draw_text(x,y,string(weapon.ammoCount))
 
 
 

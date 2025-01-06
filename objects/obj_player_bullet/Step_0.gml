@@ -8,6 +8,10 @@
 #endregion
 
 
+//elemetal damage
+
+
+
 
 #region//cleanup
 	//hit confrim destroy

@@ -2,6 +2,7 @@ image_xscale = face
 var _wallCollisions = true
 var _getDamaged = true
 
+
 //state machines 
 	//chase
 switch(state)	
@@ -10,13 +11,6 @@ switch(state)
 	#region//spawn in state
 	case -1:
 		
-		//fade in
-		if image_alpha <1
-		{
-			image_alpha += fadeSpd
-			//set speed manually
-			spd = 0
-		}
 		
 		
 		//turn off collisions and damage
@@ -25,20 +19,19 @@ switch(state)
 		
 		//walk out
 		
-		if image_alpha>= 1
-		{
-		//get player direction and set right speed	
-			spd = spawnSpeed
-			
-			dir = point_direction(x,y,obj_player.x, obj_player.y)
-			
-		}
 		
+		
+		//get player direction and set right speed	
+			spd = 0
+			if instance_exists(obj_player){dir = point_direction(x,y,obj_player.x, obj_player.y)}
+			
+		
+			timer++ 
 		
 		//go to chase state
-		if !place_meeting(x,y,obj_wall) or !place_meeting(x,y,obj_zombie)
+		if timer >= spawnTimer
 		{
-			state = 0
+		state = 0	
 		}
 		
 		
@@ -63,23 +56,25 @@ switch(state)
 		var _camTop = camera_get_view_y(view_camera[0])
 		var _camBottom = camera_get_view_width(view_camera[0])
 		
-		
+		_wallCollisions = true
+		_getDamaged = true
 		
 		//only add to timer if on screen
 		if bbox_right > _camLeft and bbox_left <_camRight and bbox_bottom > _camTop and bbox_top <_camBottom
 			{
-			//begin timer
-			shootTimer++
+				//begin timer
+				shootTimer++
 			}
 	
 	
 	if shootTimer > coolDownTime
 	{
-		//go to shoot state
-		state = 1
-		
 		//reset timer
 		shootTimer = 0
+		
+		//go to shoot state
+		state = 1
+			
 	}
 	
 	
@@ -100,17 +95,18 @@ switch(state)
 	image_index = 0
 	
 	//shoot bullet
-	shootTimer++
+	//shootTimer++
+	fireTime = fireTime + 1;
 	
 	//create bullet
-	if shootTimer ==1
+	if floor(fireTime) == 1
 	{
 		bulletInst = instance_create_depth(x+bulletXoff* face,y,depth,Obj_enemy_bullet)
 		
 	}
 	
 	//keep bullet in enemy hands
-	if shootTimer <=windUpTime and instance_exists(bulletInst)
+	if fireTime <= windUpTime and instance_exists(bulletInst) and bulletInst.state == 0
 	{
 		bulletInst.x = x + bulletXoff* face
 		bulletInst.y = y 
@@ -118,21 +114,21 @@ switch(state)
 	}
 			
 	//shoot bullet after windup time
-	if shootTimer == windUpTime and instance_exists(bulletInst)
+	if fireTime >= windUpTime and instance_exists(bulletInst)
 	{
 		//set the bullets state to move state
-		bulletInst.state =1
+		bulletInst.state = 1
 		
 	}
 	
 	//reset state after recover
-	if shootTimer > windUpTime + recoverTime
+	if fireTime > windUpTime + recoverTime
 	{
 		//go back to chasing player
 		state = 0
 		
 		// reset timer
-		shootTimer = 0
+		fireTime = 0
 	}
 	
 	break

@@ -20,4 +20,14 @@ enemyDestroy = true
 
 #region // damage
 damage = 1
+
+//elemental
+type = 1
+
+fireTic = 0.5
+fireTime = 60*5
+IceSpeed = .2
+stunTimer = 60*3
+timer= 0
+
 #endregion

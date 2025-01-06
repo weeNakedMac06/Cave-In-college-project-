@@ -14,7 +14,7 @@
 	
 	//collision with objects
 		
-	if place_meeting(x,y,obj_wall){destroy = true}
+	if place_meeting(x,y,obj_wall) and enemyDestroy = true {destroy = true}
 
 	// bullet out of range
 	

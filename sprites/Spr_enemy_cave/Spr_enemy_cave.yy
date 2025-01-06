@@ -3,7 +3,7 @@
   "%Name":"Spr_enemy_cave",
   "bboxMode":2,
   "bbox_bottom":21,
-  "bbox_left":3,
+  "bbox_left":4,
   "bbox_right":23,
   "bbox_top":3,
   "collisionKind":1,
